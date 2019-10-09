@@ -1,0 +1,7 @@
+node_modules
+.vscode-test/
+# *.vsix
+**/.DS_Store
+src/vscode/vscode.storage/file/**
+src/language_out/**
+Beosin-VaaS
