@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es6",
+		"outDir": "src/language_out",
+		"sourceMap": true
+	},
+	"include": [
+		"src/language/**/*"
+	],
+	"exclude": [
+		"node_modules",
+		".vscode-test"
+	]
+}

@@ -1,0 +1,21 @@
+.vscode/**
+.vscode-test/**
+test/**
+.gitignore
+vsc-extension-quickstart.md
+**/jsconfig.json
+**/tsconfig.json
+**/*.map
+**/.eslintrc.json
+*.vsix
+
+src/language/**
+src/vscode/vscode.storage/file/**
+web/**
+!web/dist/**
+web/dist/**/*.map
+bash
+Beosin-VaaS
+
+# .__PACKAGE__
+.__VAAS__

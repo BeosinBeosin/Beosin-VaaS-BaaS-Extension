@@ -1,0 +1,146 @@
+{
+    "name": "beosin-vaas-baas",
+    "displayName": "Beosin-VaaS: BaaS",
+    "description": "Beosin-VaaS for BaaS.",
+    "version": "0.0.1",
+    "publisher": "Beosin",
+    "icon": "media/logo.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/BeosinBeosin/Beosin-VaaS-BaaS-Extension.git"
+    },
+    "homepage": "https://github.com/BeosinBeosin/Beosin-VaaS-BaaS-Extension",
+    "engines": {
+        "vscode": "^1.30.0"
+    },
+    "contributors": [
+        "leocll"
+    ],
+    "categories": [
+        "Programming Languages",
+        "Snippets",
+        "Linters",
+        "Other"
+    ],
+    "keywords": [
+        "beosin",
+        "Beosin",
+        "vaas",
+        "VaaS",
+        "solidity",
+        "Solidity",
+        "baas",
+        "BaaS"
+    ],
+    "activationEvents": [
+        "onLanguage:solidity",
+        "onCommand:beosin-vaas-baas.start"
+    ],
+    "main": "./src/extension.js",
+    "contributes": {
+        "languages": [
+            {
+                "id": "solidity",
+                "aliases": [
+                    "Solidity",
+                    "solidity",
+                    "BaaS",
+                    "baas"
+                ],
+                "extensions": [
+                    ".sol"
+                ],
+                "configuration": "./solidity/solidity.configuration.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "solidity",
+                "path": "./solidity/snippets/solidity.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "solidity",
+                "scopeName": "source.solidity",
+                "path": "./solidity/syntaxes/baas.solidity.json"
+            }
+        ],
+        "commands": [
+            {
+                "command": "beosin-vaas-baas.start",
+                "title": "Beosin-VaaS: BaaS",
+                "icon": {
+                    "light": "./media/vaas_light.svg",
+                    "dark": "./media/vaas_dark.svg"
+                }
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "beosin-vaas-baas.start",
+                "key": "shift+alt+b",
+                "mac": "shift+alt+b",
+                "when": "editorFocus && editorLangId == solidity"
+            }
+        ],
+        "menus": {
+            "explorer/context": [
+                {
+                    "when": "resourceLangId == solidity",
+                    "command": "beosin-vaas-baas.start",
+                    "group": "2@0"
+                }
+            ],
+            "editor/title": [
+                {
+                    "when": "resourceLangId == solidity",
+                    "command": "beosin-vaas-baas.start",
+                    "group": "navigation"
+                }
+            ],
+            "editor/title/context": [
+                {
+                    "when": "resourceLangId == solidity",
+                    "command": "beosin-vaas-baas.start",
+                    "group": "navigation"
+                }
+            ],
+            "editor/context": [
+                {
+                    "when": "editorFocus && editorLangId == solidity",
+                    "command": "beosin-vaas-baas.start",
+                    "group": "2@0"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test",
+        "build": "npm run buildts && npm run buildweb && npm run buildext",
+        "buildext": "vsce package",
+        "buildts": "./node_modules/.bin/tsc -p ./tsconfig.json",
+        "buildweb": "pushd ./web &> /dev/null && { npm run build;popd &> /dev/null;}",
+        "startweb": "pushd ./web &> /dev/null && { npm run dev;popd &> /dev/null;}"
+    },
+    "devDependencies": {
+        "typescript": "^3.3.1",
+        "vscode": "^1.1.28",
+        "eslint": "^5.13.0",
+        "@types/node": "^10.12.21",
+        "@types/mocha": "^2.2.42",
+        "eslint-utils": "^1.4.2"
+    },
+    "dependencies": {
+        "adm-zip": "^0.4.13",
+        "ping-lite": "^2.0.2",
+        "shelljs": "^0.8.3",
+        "solhint": "^2.2.0",
+        "solium": "^1.2.4",
+        "solparse": "^2.2.8",
+        "vscode-languageclient": "^5.2.1",
+        "vscode-languageserver": "^5.2.1",
+        "yaml-js": "^0.2.3"
+    }
+}
