@@ -135,7 +135,7 @@
     "dependencies": {
         "adm-zip": "^0.4.13",
         "ping-lite": "^2.0.2",
-        "shelljs": "^0.8.3",
+        "shelljs": "^0.8.5",
         "solhint": "^2.2.0",
         "solium": "^1.2.4",
         "solparse": "^2.2.8",
